@@ -62,6 +62,7 @@ modules:
     sources:
       - type: git
         tag: 0.9.4
+        commit: d7e31fbfc1a2cb5da8af558b3bbdce5330b60a34
         url: https://github.com/sharkwouter/minigalaxy/
 
   - name: bundle-setup
