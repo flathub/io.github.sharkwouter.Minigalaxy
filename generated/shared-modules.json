@@ -1,8 +1,146 @@
 {
-    "name": "gtk2-libs",
+    "name": "shared-modules",
     "buildsystem": "simple",
     "build-commands": [],
     "modules": [
+        {
+            "name": "glew",
+            "no-autogen": true,
+            "make-args": [
+                "GLEW_PREFIX=${FLATPAK_DEST}",
+                "GLEW_DEST=${FLATPAK_DEST}",
+                "LIBDIR=${FLATPAK_DEST}/lib",
+                "CFLAGS.EXTRA:=${CFLAGS} -fPIC",
+                "LDFLAGS.EXTRA=${LDFLAGS}"
+            ],
+            "make-install-args": [
+                "GLEW_PREFIX=${FLATPAK_DEST}",
+                "GLEW_DEST=${FLATPAK_DEST}",
+                "LIBDIR=${FLATPAK_DEST}/lib",
+                "CFLAGS.EXTRA:=${CFLAGS} -fPIC",
+                "LDFLAGS.EXTRA=${LDFLAGS}"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://downloads.sourceforge.net/project/glew/glew/2.2.0/glew-2.2.0.tgz",
+                    "sha256": "d4fc82893cfb00109578d0a1a2337fb8ca335b3ceccf97b97e5cc7f08e4353e1"
+                }
+            ],
+            "cleanup": [
+                "/include",
+                "/lib/pkgconfig",
+                "/lib/*.a"
+            ]
+        },
+        {
+            "name": "glew-32bit",
+            "no-autogen": true,
+            "make-args": [
+                "GLEW_PREFIX=${FLATPAK_DEST}",
+                "GLEW_DEST=${FLATPAK_DEST}",
+                "LIBDIR=${FLATPAK_DEST}/lib",
+                "CFLAGS.EXTRA:=${CFLAGS} -fPIC",
+                "LDFLAGS.EXTRA=${LDFLAGS}"
+            ],
+            "make-install-args": [
+                "GLEW_PREFIX=${FLATPAK_DEST}",
+                "GLEW_DEST=${FLATPAK_DEST}",
+                "LIBDIR=${FLATPAK_DEST}/lib",
+                "CFLAGS.EXTRA:=${CFLAGS} -fPIC",
+                "LDFLAGS.EXTRA=${LDFLAGS}"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://downloads.sourceforge.net/project/glew/glew/2.2.0/glew-2.2.0.tgz",
+                    "sha256": "d4fc82893cfb00109578d0a1a2337fb8ca335b3ceccf97b97e5cc7f08e4353e1"
+                }
+            ],
+            "cleanup": [
+                "/include",
+                "/lib/pkgconfig",
+                "/lib/*.a"
+            ],
+            "only-arches": [
+                "x86_64"
+            ],
+            "build-options": {
+                "prepend-ld-library-path": "/app/lib32",
+                "prepend-pkg-config-path": "/app/lib32/pkgconfig",
+                "ldflags": "-L/app/lib32 -Wl,-z,relro,-z,now -Wl,--as-needed",
+                "ldflags-override": true,
+                "libdir": "/app/lib32",
+                "arch": {
+                    "x86_64": {
+                        "append-path": "/usr/lib/sdk/toolchain-i386/bin",
+                        "prepend-pkg-config-path": "/usr/lib/i386-linux-gnu/pkgconfig",
+                        "env": {
+                            "CC": "ccache i686-unknown-linux-gnu-gcc",
+                            "CXX": "ccache i686-unknown-linux-gnu-g++"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "name": "glu",
+            "config-opts": [
+                "--disable-static"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://mesa.freedesktop.org/archive/glu/glu-9.0.1.tar.xz",
+                    "sha256": "fb5a4c2dd6ba6d1c21ab7c05129b0769544e1d68e1e3b0ffecb18e73c93055bc"
+                }
+            ],
+            "cleanup": [
+                "/include",
+                "/lib/*.a",
+                "/lib/*.la",
+                "/lib/pkgconfig"
+            ]
+        },
+        {
+            "name": "glu-32bit",
+            "config-opts": [
+                "--disable-static"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://mesa.freedesktop.org/archive/glu/glu-9.0.1.tar.xz",
+                    "sha256": "fb5a4c2dd6ba6d1c21ab7c05129b0769544e1d68e1e3b0ffecb18e73c93055bc"
+                }
+            ],
+            "cleanup": [
+                "/include",
+                "/lib/*.a",
+                "/lib/*.la",
+                "/lib/pkgconfig"
+            ],
+            "only-arches": [
+                "x86_64"
+            ],
+            "build-options": {
+                "prepend-ld-library-path": "/app/lib32",
+                "prepend-pkg-config-path": "/app/lib32/pkgconfig",
+                "ldflags": "-L/app/lib32 -Wl,-z,relro,-z,now -Wl,--as-needed",
+                "ldflags-override": true,
+                "libdir": "/app/lib32",
+                "arch": {
+                    "x86_64": {
+                        "append-path": "/usr/lib/sdk/toolchain-i386/bin",
+                        "prepend-pkg-config-path": "/usr/lib/i386-linux-gnu/pkgconfig",
+                        "env": {
+                            "CC": "ccache i686-unknown-linux-gnu-gcc",
+                            "CXX": "ccache i686-unknown-linux-gnu-g++"
+                        }
+                    }
+                }
+            }
+        },
         {
             "name": "gnome-themes-extra",
             "rm-configure": true,
@@ -302,136 +440,6 @@
                             }
                         }
                     }
-                }
-            ],
-            "only-arches": [
-                "x86_64"
-            ],
-            "build-options": {
-                "prepend-ld-library-path": "/app/lib32",
-                "prepend-pkg-config-path": "/app/lib32/pkgconfig",
-                "ldflags": "-L/app/lib32 -Wl,-z,relro,-z,now -Wl,--as-needed",
-                "ldflags-override": true,
-                "libdir": "/app/lib32",
-                "arch": {
-                    "x86_64": {
-                        "append-path": "/usr/lib/sdk/toolchain-i386/bin",
-                        "prepend-pkg-config-path": "/usr/lib/i386-linux-gnu/pkgconfig",
-                        "env": {
-                            "CC": "ccache i686-unknown-linux-gnu-gcc",
-                            "CXX": "ccache i686-unknown-linux-gnu-g++"
-                        }
-                    }
-                }
-            }
-        },
-        {
-            "name": "dbus-glib",
-            "cleanup": [
-                "*.la",
-                "/bin",
-                "/etc",
-                "/include",
-                "/libexec",
-                "/share/gtk-doc",
-                "/share/man"
-            ],
-            "config-opts": [
-                "--disable-static",
-                "--disable-gtk-doc"
-            ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://dbus.freedesktop.org/releases/dbus-glib/dbus-glib-0.110.tar.gz",
-                    "sha256": "7ce4760cf66c69148f6bd6c92feaabb8812dee30846b24cd0f7395c436d7e825"
-                }
-            ]
-        },
-        {
-            "name": "dbus-glib-32bit",
-            "cleanup": [
-                "*.la",
-                "/bin",
-                "/etc",
-                "/include",
-                "/libexec",
-                "/share/gtk-doc",
-                "/share/man"
-            ],
-            "config-opts": [
-                "--disable-static",
-                "--disable-gtk-doc"
-            ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://dbus.freedesktop.org/releases/dbus-glib/dbus-glib-0.110.tar.gz",
-                    "sha256": "7ce4760cf66c69148f6bd6c92feaabb8812dee30846b24cd0f7395c436d7e825"
-                }
-            ],
-            "only-arches": [
-                "x86_64"
-            ],
-            "build-options": {
-                "prepend-ld-library-path": "/app/lib32",
-                "prepend-pkg-config-path": "/app/lib32/pkgconfig",
-                "ldflags": "-L/app/lib32 -Wl,-z,relro,-z,now -Wl,--as-needed",
-                "ldflags-override": true,
-                "libdir": "/app/lib32",
-                "arch": {
-                    "x86_64": {
-                        "append-path": "/usr/lib/sdk/toolchain-i386/bin",
-                        "prepend-pkg-config-path": "/usr/lib/i386-linux-gnu/pkgconfig",
-                        "env": {
-                            "CC": "ccache i686-unknown-linux-gnu-gcc",
-                            "CXX": "ccache i686-unknown-linux-gnu-g++"
-                        }
-                    }
-                }
-            }
-        },
-        {
-            "name": "gconf",
-            "config-opts": [
-                "--disable-static",
-                "--disable-gtk-doc",
-                "--disable-orbit",
-                "--disable-introspection"
-            ],
-            "cleanup": [
-                "/bin",
-                "/libexec",
-                "/share",
-                "/etc"
-            ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://download.gnome.org/sources/GConf/3.2/GConf-3.2.6.tar.xz",
-                    "sha256": "1912b91803ab09a5eed34d364bf09fe3a2a9c96751fde03a4e0cfa51a04d784c"
-                }
-            ]
-        },
-        {
-            "name": "gconf-32bit",
-            "config-opts": [
-                "--disable-static",
-                "--disable-gtk-doc",
-                "--disable-orbit",
-                "--disable-introspection"
-            ],
-            "cleanup": [
-                "/bin",
-                "/libexec",
-                "/share",
-                "/etc"
-            ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://download.gnome.org/sources/GConf/3.2/GConf-3.2.6.tar.xz",
-                    "sha256": "1912b91803ab09a5eed34d364bf09fe3a2a9c96751fde03a4e0cfa51a04d784c"
                 }
             ],
             "only-arches": [

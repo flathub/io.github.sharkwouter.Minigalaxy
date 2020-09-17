@@ -1,0 +1,23 @@
+name: libs
+buildsystem: simple
+build-commands: []
+x-compat32-module: .compat32-module.yml
+modules:
+  - name: freeglut
+    build-options:
+      cflags: -fcommon
+    buildsystem: cmake-ninja
+    sources:
+      - type: archive
+        url: https://downloads.sourceforge.net/project/freeglut/freeglut/3.2.1/freeglut-3.2.1.tar.gz
+        sha256: d4000e02102acaf259998c870e25214739d1f16f67f99cb35e4f46841399da68
+
+  - name: libcaca
+    config-opts:
+      - --disable-python
+      - --disable-ruby
+      - --disable-static
+    sources:
+      - type: archive
+        url: http://caca.zoy.org/files/libcaca/libcaca-0.99.beta19.tar.gz
+        sha256: 128b467c4ed03264c187405172a4e83049342cc8cc2f655f53a2d0ee9d3772f4
