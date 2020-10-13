@@ -42,6 +42,7 @@ finish-args:
   - --allow=multiarch
   - --device=all
   - --filesystem=~/GOG Games:create
+  - --persist=.
   - --share=ipc
   - --share=network
   - --socket=pulseaudio
