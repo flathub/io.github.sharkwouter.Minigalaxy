@@ -48,6 +48,7 @@ finish-args:
   - --env=WINEESYNC=1
   - --env=WINEFSYNC=1
   - --filesystem=~/GOG Games:create
+  - --persist=.
   - --share=ipc
   - --share=network
   - --socket=pulseaudio
