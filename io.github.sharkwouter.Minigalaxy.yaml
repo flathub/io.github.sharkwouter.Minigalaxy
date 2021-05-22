@@ -82,6 +82,25 @@ modules:
       - type: file
         path: ld.so.conf
 
+  # For DXVK
+  - name: winetricks
+    no-autogen: true
+    make-install-args:
+      - PREFIX=$(FLATPAK_DEST)
+    sources:
+      - type: archive
+        url: https://github.com/Winetricks/winetricks/archive/20210206.tar.gz
+        sha256: 705421798b28696f577104ebdf03b068b9343ab096754150f47a6ec06fa8ae65
+
+    modules:
+      - name: cabextract
+        build-options:
+          strip: true
+        sources:
+          - type: archive
+            url: https://www.cabextract.org.uk/cabextract-1.9.1.tar.gz
+            sha256: afc253673c8ef316b4d5c29cc4aa8445844bee14afffbe092ee9469405851ca7
+
   # Must have libraries for most old games.
   # WARNING: Use right build order here.
   - generated/shared-modules.json
