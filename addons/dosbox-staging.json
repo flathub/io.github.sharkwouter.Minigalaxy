@@ -1,0 +1,47 @@
+{
+    "name": "dosbox-staging",
+    "buildsystem": "meson",
+    "sources": [
+        {
+            "type": "archive",
+            "archive-type": "tar-gzip",
+            "url": "https://api.github.com/repos/dosbox-staging/dosbox-staging/tarball/v0.77.1",
+            "sha256": "09dfbc94d9362647f6548ed15f87fac9256eca38450673f713a841022101d074",
+            "x-checker-data": {
+                "type": "json",
+                "url": "https://api.github.com/repos/dosbox-staging/dosbox-staging/releases/latest",
+                "version-query": ".tag_name | sub(\"^[vV]\"; \"\")",
+                "url-query": ".tarball_url"
+            }
+        }
+    ],
+    "modules": [
+        "../shared-modules/linux-audio/fluidsynth2.json",
+        "../shared-modules/SDL/SDL-1.2.15.json",
+        "../shared-modules/SDL/SDL_net-1.2.8.json",
+        {
+            "name": "SDL_sound",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://icculus.org/SDL_sound/downloads/SDL_sound-1.0.3.tar.gz",
+                    "sha256": "3999fd0bbb485289a52be14b2f68b571cb84e380cc43387eadf778f64c79e6df"
+                }
+            ]
+        },
+        {
+            "name": "munt",
+            "buildsystem": "cmake-ninja",
+            "config-opts": [
+                "-Dmunt_WITH_MT32EMU_QT:BOOL=OFF"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/munt/munt/archive/refs/tags/munt_2_5_0.tar.gz",
+                    "sha256": "3f582ed85a70085c789f42c0ca44d93151b5e6dc4c79bae3c29b788024d3fa54"
+                }
+            ]
+        }
+    ]
+}
