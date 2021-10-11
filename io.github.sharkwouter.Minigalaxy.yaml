@@ -108,5 +108,9 @@ modules:
   - generated/pypi-dependencies.json
 
   # Addons
-  #   * DOSBox Staging. DOS/x86 emulator focusing on ease of use.
+  #   * DOSBox Staging.  DOS/x86 emulator focusing on ease of use.
   - addons/dosbox-staging.json
+  #   * ScummVM.  A program which allows you to run certain classic graphical
+  #     adventure and role-playing games, provided you already have their data
+  #     files.
+  - addons/scummvm.json
