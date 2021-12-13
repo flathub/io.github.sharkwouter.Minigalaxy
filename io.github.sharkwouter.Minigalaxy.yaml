@@ -68,8 +68,9 @@ modules:
         --no-deps .
     sources:
       - type: git
-        tag: 1.1.0
-        commit: 45d8cd966c5e93880fbd10556215f3249aac28c0
+        # tag: 1.1.0
+        branch: 1.1.0-flathub
+        commit: dc65b3e2bb1cb3e60ff59e18b6cfc133571db792
         url: https://github.com/sharkwouter/minigalaxy.git
 
   - name: bundle-setup
