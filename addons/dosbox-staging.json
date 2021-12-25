@@ -5,8 +5,8 @@
         {
             "type": "archive",
             "archive-type": "tar-gzip",
-            "url": "https://api.github.com/repos/dosbox-staging/dosbox-staging/tarball/v0.77.1",
-            "sha256": "09dfbc94d9362647f6548ed15f87fac9256eca38450673f713a841022101d074",
+            "url": "https://api.github.com/repos/dosbox-staging/dosbox-staging/tarball/v0.78.0",
+            "sha256": "3948a45fc8146265a50f2724d2db01c4ffe023121bdb9abd7bd800089aeca437",
             "x-checker-data": {
                 "type": "json",
                 "url": "https://api.github.com/repos/dosbox-staging/dosbox-staging/releases/latest",
