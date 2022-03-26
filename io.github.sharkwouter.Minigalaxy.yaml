@@ -1,6 +1,6 @@
 app-id: io.github.sharkwouter.Minigalaxy
 runtime: org.gnome.Platform
-runtime-version: '41'
+runtime-version: '42'
 sdk: org.gnome.Sdk
 sdk-extensions:
   - org.gnome.Sdk.Compat.i386
@@ -17,11 +17,11 @@ cleanup-commands:
 add-extensions:
   org.gnome.Platform.Compat.i386:
     directory: lib/i386-linux-gnu
-    version: '41'
+    version: '42'
 
   org.gnome.Platform.Compat.i386.Debug:
     directory: lib/debug/lib/i386-linux-gnu
-    version: '41'
+    version: '42'
     no-autodownload: true
 
   org.freedesktop.Platform.GL32:
