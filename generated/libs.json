@@ -106,8 +106,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://libbsd.freedesktop.org/releases/libbsd-0.11.3.tar.xz",
-                    "sha256": "ff95cf8184151dacae4247832f8d4ea8800fa127dbd15033ecfe839f285b42a1"
+                    "url": "https://libbsd.freedesktop.org/releases/libbsd-0.11.5.tar.xz",
+                    "sha256": "1a9c952525635c1bb6770cb22e969b938d8e6a9d7912362b98ee8370599b0efd"
                 }
             ],
             "modules": [
@@ -116,8 +116,8 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://libbsd.freedesktop.org/releases/libmd-1.0.3.tar.xz",
-                            "sha256": "5a02097f95cc250a3f1001865e4dbba5f1d15554120f95693c0541923c52af4a"
+                            "url": "https://libbsd.freedesktop.org/releases/libmd-1.0.4.tar.xz",
+                            "sha256": "f51c921042e34beddeded4b75557656559cf5b1f2448033b4c1eec11c07e530f"
                         }
                     ]
                 }
@@ -128,8 +128,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://libbsd.freedesktop.org/releases/libbsd-0.11.3.tar.xz",
-                    "sha256": "ff95cf8184151dacae4247832f8d4ea8800fa127dbd15033ecfe839f285b42a1"
+                    "url": "https://libbsd.freedesktop.org/releases/libbsd-0.11.5.tar.xz",
+                    "sha256": "1a9c952525635c1bb6770cb22e969b938d8e6a9d7912362b98ee8370599b0efd"
                 }
             ],
             "modules": [
@@ -138,8 +138,8 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://libbsd.freedesktop.org/releases/libmd-1.0.3.tar.xz",
-                            "sha256": "5a02097f95cc250a3f1001865e4dbba5f1d15554120f95693c0541923c52af4a"
+                            "url": "https://libbsd.freedesktop.org/releases/libmd-1.0.4.tar.xz",
+                            "sha256": "f51c921042e34beddeded4b75557656559cf5b1f2448033b4c1eec11c07e530f"
                         }
                     ],
                     "only-arches": [

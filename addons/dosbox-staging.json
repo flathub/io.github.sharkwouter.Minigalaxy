@@ -5,8 +5,8 @@
         {
             "type": "archive",
             "archive-type": "tar-gzip",
-            "url": "https://api.github.com/repos/dosbox-staging/dosbox-staging/tarball/v0.77.1",
-            "sha256": "09dfbc94d9362647f6548ed15f87fac9256eca38450673f713a841022101d074",
+            "url": "https://api.github.com/repos/dosbox-staging/dosbox-staging/tarball/v0.78.1",
+            "sha256": "bb9bbd477955b0bbf0b051e5be24150b3f140c0b88ad7dd622e144da6749536a",
             "x-checker-data": {
                 "type": "json",
                 "url": "https://api.github.com/repos/dosbox-staging/dosbox-staging/releases/latest",
@@ -38,8 +38,28 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/munt/munt/archive/refs/tags/munt_2_5_0.tar.gz",
-                    "sha256": "3f582ed85a70085c789f42c0ca44d93151b5e6dc4c79bae3c29b788024d3fa54"
+                    "url": "https://github.com/munt/munt/archive/refs/tags/munt_2_6_2.tar.gz",
+                    "sha256": "46deb6c0d40f5f5e0f0d121f7d2ed19bba787ac72cf399717b412ef7d241eeec"
+                }
+            ]
+        },
+        {
+            "name": "libslirp",
+            "buildsystem": "meson",
+            "cleanup": [
+                "/include",
+                "/lib/pkgconfig"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://gitlab.freedesktop.org/slirp/libslirp/-/archive/v4.6.1/libslirp-v4.6.1.tar.gz",
+                    "sha256": "69ad4df0123742a29cc783b35de34771ed74d085482470df6313b6abeb799b11",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 96796,
+                        "url-template": "https://gitlab.freedesktop.org/slirp/libslirp/-/archive/v$version/libslirp-v$version.tar.gz"
+                    }
                 }
             ]
         }
