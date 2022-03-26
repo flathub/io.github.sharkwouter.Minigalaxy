@@ -1,14 +1,8 @@
 ## For users
 
-### Install DXVK for Windows games
+### Wine and Minigalaxy
 
-Wine not packaged on Flathub and until then for running Windows games in Minigalaxy we need to use `com.valvesoftware.Steam.CompatibilityTool.Proton` with some limitations and workarounds. You can use `winetricks` for installing some essentials. To install DXVK for Minigalaxy use the following commands:
-
-```bash
-$ flatpak run --command=sh io.github.sharkwouter.Minigalaxy
-$ winetricks dxvk
-$ exit
-```
+Since 26 Mar 2022 Minigalaxy switched to native Wine Flathub build. Manually installing DXVK no longer needed. WARNING: old Proton prefixes will not work with Wine.
 
 ### Minigalaxy Dev version
 
@@ -28,7 +22,7 @@ $ flatpak run io.github.sharkwouter.Minigalaxy//beta
 In some cases for Dev version due to known [bug](https://github.com/flatpak/flatpak/issues/3094) you need to install `org.gnome.Platform.Compat.i386` manually:
 
 ```bash
-$ flatpak install --user org.gnome.Platform.Compat.i386//41
+$ flatpak install --user org.gnome.Platform.Compat.i386//42
 ```
 
 ## For maintainers
