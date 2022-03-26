@@ -5,6 +5,8 @@ sdk: org.gnome.Sdk
 sdk-extensions:
   - org.gnome.Sdk.Compat.i386
   - org.freedesktop.Sdk.Extension.toolchain-i386
+base: org.winehq.Wine
+base-version: stable-21.08
 cleanup:
   - /lib/*.a
   - /lib/*.la
@@ -14,6 +16,15 @@ cleanup:
   - /share/man
 cleanup-commands:
   - mkdir -p ${FLATPAK_DEST}/lib{,32}/
+inherit-extensions:
+  - org.freedesktop.Platform.Compat.i386
+  - org.freedesktop.Platform.ffmpeg_full.i386
+  - org.freedesktop.Platform.ffmpeg-full
+  - org.freedesktop.Platform.GL32
+  - org.freedesktop.Platform.VAAPI.Intel.i386
+  - org.winehq.Wine.DLLs
+  - org.winehq.Wine.gecko
+  - org.winehq.Wine.mono
 add-extensions:
   org.gnome.Platform.Compat.i386:
     directory: lib/i386-linux-gnu
@@ -36,18 +47,12 @@ add-extensions:
     download-if: active-gl-driver
     enable-if: active-gl-driver
 
-  com.valvesoftware.Steam.CompatibilityTool.Proton:
-    directory: share/steam/compatibilitytools.d/Proton
-    version: stable
-    autodelete: false
-
 command: minigalaxy
 
 finish-args:
   - --allow=multiarch
   - --device=all
-  - --env=GST_PLUGIN_SYSTEM_PATH=/app/lib/gstreamer-1.0:/app/lib32/gstreamer-1.0:/usr/lib/extensions/gstreamer-1.0:/usr/lib/x86_64-linux-gnu/gstreamer-1.0:/usr/lib/i386-linux-gnu/gstreamer-1.0
-  - --env=PATH=/app/bin:/app/share/steam/compatibilitytools.d/Proton/bin:/usr/bin
+  - --env=WINEDLLPATH=/app/dlls/lib32:/app/dlls/lib:/app/lib32/wine/wined3d:/app/lib/wine/wined3d
   - --env=WINEESYNC=1
   - --env=WINEFSYNC=1
   - --filesystem=~/GOG Games:create
@@ -78,29 +83,9 @@ modules:
     build-commands:
       - mkdir -p /app{,/lib/debug}/lib/i386-linux-gnu
       - install -D -m 0644 ld.so.conf -t /app/etc
-      - mkdir -p /app/share/steam/compatibilitytools.d/Proton
     sources:
       - type: file
         path: ld.so.conf
-
-  # For DXVK
-  - name: winetricks
-    no-autogen: true
-    make-install-args:
-      - PREFIX=$(FLATPAK_DEST)
-    sources:
-      - type: archive
-        url: https://github.com/Winetricks/winetricks/archive/20210825.tar.gz
-        sha256: bac77918ef4d58c6465a1043fd996d09c3ee2c5a07f56ed089c4c65a71881277
-
-    modules:
-      - name: cabextract
-        build-options:
-          strip: true
-        sources:
-          - type: archive
-            url: https://www.cabextract.org.uk/cabextract-1.9.1.tar.gz
-            sha256: afc253673c8ef316b4d5c29cc4aa8445844bee14afffbe092ee9469405851ca7
 
   # Must have libraries for most old games.
   # WARNING: Use right build order here.
