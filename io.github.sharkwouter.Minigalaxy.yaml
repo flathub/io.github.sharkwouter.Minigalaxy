@@ -55,17 +55,17 @@ modules:
   - name: minigalaxy
     buildsystem: simple
     build-commands:
+      # Remove until new GNOME v43 runtime
+      - rm -f pyproject.toml
       - pip3 install
         --no-index
         --find-links="file://${PWD}"
         --prefix=${FLATPAK_DEST}
         --no-deps .
     sources:
-      - type: git
-        # tag: 1.1.0
-        branch: 1.1.0-flathub
-        commit: dc65b3e2bb1cb3e60ff59e18b6cfc133571db792
-        url: https://github.com/sharkwouter/minigalaxy.git
+      - type: archive
+        url: https://github.com/sharkwouter/minigalaxy/archive/refs/tags/1.2.1-flathub.tar.gz
+        sha256: 26c0a4a2d9ef48d6b2d01eaec2b07b9a5535e8bc28f00187a42c2dbadef26780
 
   - name: bundle-setup
     buildsystem: simple
