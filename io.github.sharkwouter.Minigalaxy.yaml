@@ -55,16 +55,14 @@ modules:
   - name: minigalaxy
     buildsystem: simple
     build-commands:
-      # Remove until new GNOME v43 runtime
-      - rm -f pyproject.toml
+      - |
+        VERSION="1.2.1"
+        sed "s|^VERSION.*|VERSION = \"$VERSION\"|g" -i minigalaxy/version.py
       - pip3 install
-        --no-index
-        --find-links="file://${PWD}"
-        --prefix=${FLATPAK_DEST}
+        --no-build-isolation
         --no-deps .
-      # FIXME: For some reason since new 1.2.0 version Python shebang converting
-      # into #!python during build
-      - sed -i 's|#!python|#!/usr/bin/env python3|' /app/bin/minigalaxy
+        --no-index
+        --prefix=${FLATPAK_DEST}
     sources:
       - type: archive
         url: https://github.com/sharkwouter/minigalaxy/archive/refs/tags/1.2.1-flathub.tar.gz
