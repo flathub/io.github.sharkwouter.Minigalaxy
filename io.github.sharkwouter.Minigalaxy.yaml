@@ -62,6 +62,9 @@ modules:
         --find-links="file://${PWD}"
         --prefix=${FLATPAK_DEST}
         --no-deps .
+      # FIXME: For some reason since new 1.2.0 version Python shebang converting
+      # into #!python during build
+      - sed -i 's|#!python|#!/usr/bin/env python3|' /app/bin/minigalaxy
     sources:
       - type: archive
         url: https://github.com/sharkwouter/minigalaxy/archive/refs/tags/1.2.1-flathub.tar.gz
