@@ -55,9 +55,6 @@ modules:
   - name: minigalaxy
     buildsystem: simple
     build-commands:
-      - |
-        VERSION="1.2.1"
-        sed "s|^VERSION.*|VERSION = \"$VERSION\"|g" -i minigalaxy/version.py
       - pip3 install
         --no-build-isolation
         --no-deps .
@@ -65,8 +62,8 @@ modules:
         --prefix=${FLATPAK_DEST}
     sources:
       - type: archive
-        url: https://github.com/sharkwouter/minigalaxy/archive/refs/tags/1.2.1-flathub.tar.gz
-        sha256: 26c0a4a2d9ef48d6b2d01eaec2b07b9a5535e8bc28f00187a42c2dbadef26780
+        url: https://github.com/sharkwouter/minigalaxy/archive/refs/tags/1.2.2.tar.gz
+        sha256: 0ae5fc29560d4e02b193274fbfd1df169d500cdb63bb32dee8bbfb30c11f5855
 
   - name: bundle-setup
     buildsystem: simple
