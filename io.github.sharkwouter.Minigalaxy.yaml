@@ -1,12 +1,12 @@
 app-id: io.github.sharkwouter.Minigalaxy
 runtime: org.gnome.Platform
-runtime-version: '42'
+runtime-version: '43'
 sdk: org.gnome.Sdk
 sdk-extensions:
   - org.gnome.Sdk.Compat.i386
   - org.freedesktop.Sdk.Extension.toolchain-i386
 base: org.winehq.Wine
-base-version: stable-21.08
+base-version: stable-22.08
 cleanup:
   - /lib/*.a
   - /lib/*.la
@@ -28,11 +28,11 @@ inherit-extensions:
 add-extensions:
   org.gnome.Platform.Compat.i386:
     directory: lib/i386-linux-gnu
-    version: '42'
+    version: '43'
 
   org.gnome.Platform.Compat.i386.Debug:
     directory: lib/debug/lib/i386-linux-gnu
-    version: '42'
+    version: '43'
     no-autodownload: true
 
 command: minigalaxy
@@ -55,17 +55,21 @@ modules:
   - name: minigalaxy
     buildsystem: simple
     build-commands:
-      - pip3 install
-        --no-index
-        --find-links="file://${PWD}"
-        --prefix=${FLATPAK_DEST}
-        --no-deps .
+      - pip3 install --no-build-isolation --no-deps . --no-index --prefix=${FLATPAK_DEST}
     sources:
-      - type: git
-        # tag: 1.1.0
-        branch: 1.1.0-flathub
-        commit: dc65b3e2bb1cb3e60ff59e18b6cfc133571db792
-        url: https://github.com/sharkwouter/minigalaxy.git
+      - type: archive
+        url: https://github.com/sharkwouter/minigalaxy/archive/1.2.2.tar.gz
+        sha256: 0ae5fc29560d4e02b193274fbfd1df169d500cdb63bb32dee8bbfb30c11f5855
+      # Use webkit 4.1 when possible
+      # This required by new v43 runtime
+      # https://github.com/sharkwouter/minigalaxy/issues/535
+      # https://github.com/sharkwouter/minigalaxy/commit/ec823d4148fe9182c92c6e748228a527e45f0dcf
+      - type: patch
+        path: ec823d4148fe9182c92c6e748228a527e45f0dcf.patch
+        x-checker-data:
+          type: anitya
+          project-id: 292418
+          url-template: https://github.com/sharkwouter/minigalaxy/archive/$version.tar.gz
 
   - name: bundle-setup
     buildsystem: simple
