@@ -60,6 +60,12 @@ modules:
       - type: archive
         url: https://github.com/sharkwouter/minigalaxy/archive/1.2.2.tar.gz
         sha256: 0ae5fc29560d4e02b193274fbfd1df169d500cdb63bb32dee8bbfb30c11f5855
+      # Use webkit 4.1 when possible
+      # This required by new v43 runtime
+      # https://github.com/sharkwouter/minigalaxy/issues/535
+      # https://github.com/sharkwouter/minigalaxy/commit/ec823d4148fe9182c92c6e748228a527e45f0dcf
+      - type: patch
+        path: ec823d4148fe9182c92c6e748228a527e45f0dcf.patch
         x-checker-data:
           type: anitya
           project-id: 292418
