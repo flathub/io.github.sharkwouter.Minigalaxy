@@ -1,12 +1,12 @@
 app-id: io.github.sharkwouter.Minigalaxy
 runtime: org.gnome.Platform
-runtime-version: '42'
+runtime-version: '43'
 sdk: org.gnome.Sdk
 sdk-extensions:
   - org.gnome.Sdk.Compat.i386
   - org.freedesktop.Sdk.Extension.toolchain-i386
 base: org.winehq.Wine
-base-version: stable-21.08
+base-version: stable-22.08
 cleanup:
   - /lib/*.a
   - /lib/*.la
@@ -28,11 +28,11 @@ inherit-extensions:
 add-extensions:
   org.gnome.Platform.Compat.i386:
     directory: lib/i386-linux-gnu
-    version: '42'
+    version: '43'
 
   org.gnome.Platform.Compat.i386.Debug:
     directory: lib/debug/lib/i386-linux-gnu
-    version: '42'
+    version: '43'
     no-autodownload: true
 
 command: minigalaxy
