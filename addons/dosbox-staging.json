@@ -41,8 +41,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/munt/munt/archive/refs/tags/munt_2_6_2.tar.gz",
-                    "sha256": "46deb6c0d40f5f5e0f0d121f7d2ed19bba787ac72cf399717b412ef7d241eeec"
+                    "url": "https://github.com/munt/munt/archive/refs/tags/munt_2_7_0.tar.gz",
+                    "sha256": "29565cf02a213143d60e6f5c0c992eb80ce6a08874e4cc90456072c8dbcba581"
                 }
             ]
         },
