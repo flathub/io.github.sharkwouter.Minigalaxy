@@ -8,8 +8,11 @@ sdk-extensions:
 base: org.winehq.Wine
 base-version: stable-22.08
 cleanup:
+  - /include
   - /lib/*.a
   - /lib/*.la
+  - /lib/cmake
+  - /lib/pkgconfig
   - /lib32/*.a
   - /lib32/*.la
   - /share/doc
