@@ -74,6 +74,32 @@ modules:
           project-id: 292418
           url-template: https://github.com/sharkwouter/minigalaxy/archive/$version.tar.gz
 
+  - name: innoextract
+    buildsystem: cmake-ninja
+    sources:
+      - type: git
+        url: https://github.com/dscharrer/innoextract.git
+        tag: '1.9'
+        commit: 81fd9b95b76ee5115ce116bfdbc3bc6b887b809d
+        x-checker-data:
+          type: git
+          tag-pattern: ^([\d.]+)$
+    modules:
+      - name: boost
+        buildsystem: simple
+        build-commands:
+          - ./bootstrap.sh --prefix=$FLATPAK_DEST --with-libraries=filesystem,iostreams,date_time,system,program_options
+          - ./b2 -j$FLATPAK_BUILDER_N_JOBS install variant=release cxxstd=17 --layout=system
+        sources:
+          - type: archive
+            url: https://boostorg.jfrog.io/artifactory/main/release/1.80.0/source/boost_1_80_0.tar.bz2
+            sha256: 1e19565d82e43bc59209a168f5ac899d3ba471d55c7610c677d4ccf2c9c500c0
+            x-checker-data:
+              type: html
+              url: https://www.boost.org/feed/downloads.rss
+              version-pattern: <link>https://www.boost.org/users/history/version_([\d_]+).html</link>
+              url-template: https://boostorg.jfrog.io/artifactory/main/release/$version0.$version2.$version4/source/boost_$version.tar.bz2
+
   - name: bundle-setup
     buildsystem: simple
     build-commands:
