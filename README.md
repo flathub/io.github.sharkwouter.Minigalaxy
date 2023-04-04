@@ -22,7 +22,7 @@ $ flatpak run io.github.sharkwouter.Minigalaxy//beta
 In some cases for Dev version due to known [bug](https://github.com/flatpak/flatpak/issues/3094) you need to install `org.gnome.Platform.Compat.i386` manually:
 
 ```bash
-$ flatpak install --user org.gnome.Platform.Compat.i386//43
+$ flatpak install --user org.gnome.Platform.Compat.i386//44
 ```
 
 ## For maintainers
