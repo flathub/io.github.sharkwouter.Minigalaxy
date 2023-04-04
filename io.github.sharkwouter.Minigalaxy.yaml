@@ -1,6 +1,6 @@
 app-id: io.github.sharkwouter.Minigalaxy
 runtime: org.gnome.Platform
-runtime-version: '43'
+runtime-version: '44'
 sdk: org.gnome.Sdk
 sdk-extensions:
   - org.gnome.Sdk.Compat.i386
@@ -31,11 +31,11 @@ inherit-extensions:
 add-extensions:
   org.gnome.Platform.Compat.i386:
     directory: lib/i386-linux-gnu
-    version: '43'
+    version: '44'
 
   org.gnome.Platform.Compat.i386.Debug:
     directory: lib/debug/lib/i386-linux-gnu
-    version: '43'
+    version: '44'
     no-autodownload: true
 
 command: minigalaxy
