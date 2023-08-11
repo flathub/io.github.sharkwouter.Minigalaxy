@@ -61,8 +61,8 @@ modules:
       - pip3 install --no-build-isolation --no-deps . --no-index --prefix=${FLATPAK_DEST}
     sources:
       - type: archive
-        url: https://github.com/sharkwouter/minigalaxy/archive/1.2.5.tar.gz
-        sha256: c0190851c69d89b7b3784a66617af24519977fffb88ee4fabf77db89ea16863f
+        url: https://github.com/sharkwouter/minigalaxy/archive/1.2.2.tar.gz
+        sha256: 0ae5fc29560d4e02b193274fbfd1df169d500cdb63bb32dee8bbfb30c11f5855
         x-checker-data:
           type: anitya
           project-id: 292418
@@ -86,8 +86,8 @@ modules:
           - ./b2 -j$FLATPAK_BUILDER_N_JOBS install variant=release cxxstd=17 --layout=system
         sources:
           - type: archive
-            url: https://boostorg.jfrog.io/artifactory/main/release/1.82.0/source/boost_1_82_0.tar.bz2
-            sha256: a6e1ab9b0860e6a2881dd7b21fe9f737a095e5f33a3a874afc6a345228597ee6
+            url: https://boostorg.jfrog.io/artifactory/main/release/1.83.0/source/boost_1_83_0.tar.bz2
+            sha256: 6478edfe2f3305127cffe8caf73ea0176c53769f4bf1585be237eb30798c3b8e
             x-checker-data:
               type: html
               url: https://www.boost.org/feed/downloads.rss
