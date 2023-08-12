@@ -61,8 +61,8 @@ modules:
       - pip3 install --no-build-isolation --no-deps . --no-index --prefix=${FLATPAK_DEST}
     sources:
       - type: archive
-        url: https://github.com/sharkwouter/minigalaxy/archive/1.2.2.tar.gz
-        sha256: 0ae5fc29560d4e02b193274fbfd1df169d500cdb63bb32dee8bbfb30c11f5855
+        url: https://github.com/sharkwouter/minigalaxy/archive/1.2.5.tar.gz
+        sha256: c0190851c69d89b7b3784a66617af24519977fffb88ee4fabf77db89ea16863f
         x-checker-data:
           type: anitya
           project-id: 292418
