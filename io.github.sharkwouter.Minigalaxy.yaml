@@ -1,15 +1,18 @@
 app-id: io.github.sharkwouter.Minigalaxy
 runtime: org.gnome.Platform
-runtime-version: '43'
+runtime-version: &runtime-version '45'
 sdk: org.gnome.Sdk
 sdk-extensions:
   - org.gnome.Sdk.Compat.i386
   - org.freedesktop.Sdk.Extension.toolchain-i386
 base: org.winehq.Wine
-base-version: stable-22.08
+base-version: stable-23.08
 cleanup:
+  - /include
   - /lib/*.a
   - /lib/*.la
+  - /lib/cmake
+  - /lib/pkgconfig
   - /lib32/*.a
   - /lib32/*.la
   - /share/doc
@@ -28,11 +31,11 @@ inherit-extensions:
 add-extensions:
   org.gnome.Platform.Compat.i386:
     directory: lib/i386-linux-gnu
-    version: '43'
+    version: *runtime-version
 
   org.gnome.Platform.Compat.i386.Debug:
     directory: lib/debug/lib/i386-linux-gnu
-    version: '43'
+    version: *runtime-version
     no-autodownload: true
 
 command: minigalaxy
@@ -45,6 +48,7 @@ finish-args:
   - --env=WINEESYNC=1
   - --env=WINEFSYNC=1
   - --filesystem=~/GOG Games:create
+  - --persist=.
   - --share=ipc
   - --share=network
   - --socket=pulseaudio
@@ -58,18 +62,38 @@ modules:
       - pip3 install --no-build-isolation --no-deps . --no-index --prefix=${FLATPAK_DEST}
     sources:
       - type: archive
-        url: https://github.com/sharkwouter/minigalaxy/archive/1.2.2.tar.gz
-        sha256: 0ae5fc29560d4e02b193274fbfd1df169d500cdb63bb32dee8bbfb30c11f5855
-      # Use webkit 4.1 when possible
-      # This required by new v43 runtime
-      # https://github.com/sharkwouter/minigalaxy/issues/535
-      # https://github.com/sharkwouter/minigalaxy/commit/ec823d4148fe9182c92c6e748228a527e45f0dcf
-      - type: patch
-        path: ec823d4148fe9182c92c6e748228a527e45f0dcf.patch
+        url: https://github.com/sharkwouter/minigalaxy/archive/1.2.5.tar.gz
+        sha256: c0190851c69d89b7b3784a66617af24519977fffb88ee4fabf77db89ea16863f
         x-checker-data:
           type: anitya
           project-id: 292418
           url-template: https://github.com/sharkwouter/minigalaxy/archive/$version.tar.gz
+
+  - name: innoextract
+    buildsystem: cmake-ninja
+    sources:
+      - type: git
+        url: https://github.com/dscharrer/innoextract.git
+        tag: '1.9'
+        commit: 81fd9b95b76ee5115ce116bfdbc3bc6b887b809d
+        x-checker-data:
+          type: git
+          tag-pattern: ^([\d.]+)$
+    modules:
+      - name: boost
+        buildsystem: simple
+        build-commands:
+          - ./bootstrap.sh --prefix=$FLATPAK_DEST --with-libraries=filesystem,iostreams,date_time,system,program_options
+          - ./b2 -j$FLATPAK_BUILDER_N_JOBS install variant=release cxxstd=17 --layout=system
+        sources:
+          - type: archive
+            url: https://boostorg.jfrog.io/artifactory/main/release/1.83.0/source/boost_1_83_0.tar.bz2
+            sha256: 6478edfe2f3305127cffe8caf73ea0176c53769f4bf1585be237eb30798c3b8e
+            x-checker-data:
+              type: html
+              url: https://www.boost.org/feed/downloads.rss
+              version-pattern: <link>https://www.boost.org/users/history/version_([\d_]+).html</link>
+              url-template: https://boostorg.jfrog.io/artifactory/main/release/$version0.$version2.$version4/source/boost_$version.tar.bz2
 
   - name: bundle-setup
     buildsystem: simple
