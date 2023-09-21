@@ -7,13 +7,13 @@
     "sources": [
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/1d/38/fa96a426e0c0e68aabc68e896584b83ad1eec779265a028e156ce509630e/certifi-2022.9.24-py3-none-any.whl",
-            "sha256": "90c1a32f1d68f940488354e36370f6cca89f0f106db09518524c88d6ed83f382"
+            "url": "https://files.pythonhosted.org/packages/4c/dd/2234eab22353ffc7d94e8d13177aaa050113286e93e7b40eae01fbf7c3d9/certifi-2023.7.22-py3-none-any.whl",
+            "sha256": "92d6037539857d8206b8f6ae472e8b77db8058fec5937a1ef3f54304089edbb9"
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/db/51/a507c856293ab05cdc1db77ff4bc1268ddd39f29e7dc4919aa497f0adbec/charset_normalizer-2.1.1-py3-none-any.whl",
-            "sha256": "83e9a75d1911279afd89352c68b45348559d1fc0506b054b346651b5e7fee29f"
+            "url": "https://files.pythonhosted.org/packages/2a/53/cf0a48de1bdcf6ff6e1c9a023f5f523dfe303e4024f216feac64b6eb7f67/charset-normalizer-3.2.0.tar.gz",
+            "sha256": "3bb3d25a8e6c0aedd251753a79ae98a093c7e7b471faa3aa9a93a81431987ace"
         },
         {
             "type": "file",
@@ -22,13 +22,13 @@
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/ca/91/6d9b8ccacd0412c08820f72cebaa4f0c0441b5cda699c90f618b6f8a1b42/requests-2.28.1-py3-none-any.whl",
-            "sha256": "8fefa2a1a1365bf5520aac41836fbee479da67864514bdb821f31ce07ce65349"
+            "url": "https://files.pythonhosted.org/packages/70/8e/0e2d847013cb52cd35b38c009bb167a1a26b2ce6cd6965bf26b47bc0bf44/requests-2.31.0-py3-none-any.whl",
+            "sha256": "58cd2187c01e70e6e26505bca751777aa9f2ee0b7f4300988b709f44e013003f"
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/6f/de/5be2e3eed8426f871b170663333a0f627fc2924cc386cd41be065e7ea870/urllib3-1.26.12-py2.py3-none-any.whl",
-            "sha256": "b930dd878d5a8afb066a637fbb35144fe7901e3b209d1cd4f524bd0e9deee997"
+            "url": "https://files.pythonhosted.org/packages/37/dc/399e63f5d1d96bb643404ee830657f4dfcf8503f5ba8fa3c6d465d0c57fe/urllib3-2.0.5-py3-none-any.whl",
+            "sha256": "ef16afa8ba34a1f989db38e1dbbe0c302e4289a47856990d0682e374563ce35e"
         }
     ]
 }
