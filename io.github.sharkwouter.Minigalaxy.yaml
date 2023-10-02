@@ -1,6 +1,6 @@
 app-id: io.github.sharkwouter.Minigalaxy
 runtime: org.gnome.Platform
-runtime-version: &runtime-version '45'
+runtime-version: &runtime-version "45"
 sdk: org.gnome.Sdk
 sdk-extensions:
   - org.gnome.Sdk.Compat.i386
@@ -73,7 +73,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/dscharrer/innoextract.git
-        tag: '1.9'
+        tag: "1.9"
         commit: 81fd9b95b76ee5115ce116bfdbc3bc6b887b809d
         x-checker-data:
           type: git
