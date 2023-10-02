@@ -95,6 +95,9 @@ modules:
               version-pattern: <link>https://www.boost.org/users/history/version_([\d_]+).html</link>
               url-template: https://boostorg.jfrog.io/artifactory/main/release/$version0.$version2.$version4/source/boost_$version.tar.bz2
 
+  # Shared modules
+  - shared-modules/gudev/gudev.json
+
   - name: bundle-setup
     buildsystem: simple
     build-commands:
