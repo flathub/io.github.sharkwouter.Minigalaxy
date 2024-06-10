@@ -42,8 +42,8 @@
         "sources": [
             {
                 "type": "archive",
-                "url": "http://liba52.sourceforge.net/files/a52dec-0.7.4.tar.gz",
-                "sha256": "a21d724ab3b3933330194353687df82c475b5dfb997513eef4c25de6c865ec33"
+                "url": "https://code.videolan.org/videolan/liba52/-/archive/0.7.4/liba52-0.7.4.tar.gz",
+                "sha256": "92920424db9670e89defa08e9b024f5db2ec96a264d9906464e8450435e1001d"
             },
             {
                 "type": "shell",
