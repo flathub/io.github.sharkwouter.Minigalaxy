@@ -67,6 +67,12 @@ modules:
           type: anitya
           project-id: 292418
           url-template: https://github.com/sharkwouter/minigalaxy/archive/$version.tar.gz
+      # https://github.com/sharkwouter/minigalaxy/pull/600
+      - type: patch
+        path: patches/Remove-deprecated-attributes-from-AppData.patch
+      # https://github.com/sharkwouter/minigalaxy/pull/601
+      - type: patch
+        path: patches/Remove-unused-tag-in-AppData.patch
 
   - name: innoextract
     buildsystem: cmake-ninja
