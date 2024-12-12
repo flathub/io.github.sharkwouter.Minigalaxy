@@ -66,12 +66,6 @@ modules:
           type: anitya
           project-id: 292418
           url-template: https://github.com/sharkwouter/minigalaxy/archive/$version.tar.gz
-      # https://github.com/sharkwouter/minigalaxy/pull/600
-      - type: patch
-        path: patches/Remove-deprecated-attributes-from-AppData.patch
-      # https://github.com/sharkwouter/minigalaxy/pull/601
-      - type: patch
-        path: patches/Remove-unused-tag-in-AppData.patch
 
   - name: innoextract
     buildsystem: cmake-ninja
@@ -83,10 +77,6 @@ modules:
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
-      # Fix build with boost 1.85
-      # https://github.com/dscharrer/innoextract/commit/264c2fe6b84f90f6290c670e5f676660ec7b2387
-      - type: patch
-        path: patches/264c2fe6b84f90f6290c670e5f676660ec7b2387.patch
     modules:
       - name: boost
         buildsystem: simple
