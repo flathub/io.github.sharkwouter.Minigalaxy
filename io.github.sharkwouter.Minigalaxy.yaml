@@ -46,6 +46,7 @@ finish-args:
   - --env=WINEESYNC=1
   - --env=WINEFSYNC=1
   - --filesystem=~/GOG Games:create
+  - --filesystem=xdg-data/applications
   - --persist=.
   - --share=ipc
   - --share=network
