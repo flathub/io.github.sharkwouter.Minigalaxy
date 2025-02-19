@@ -89,13 +89,13 @@ modules:
           - ./b2 -j$FLATPAK_BUILDER_N_JOBS install variant=release cxxstd=17 --layout=system
         sources:
           - type: archive
-            url: https://boostorg.jfrog.io/artifactory/main/release/1.87.0/source/boost_1_87_0.tar.bz2
+            url: https://archives.boost.io/release/1.87.0/source/boost_1_87_0.tar.bz2
             sha256: af57be25cb4c4f4b413ed692fe378affb4352ea50fbe294a11ef548f4d527d89
             x-checker-data:
               type: html
               url: https://www.boost.org/feed/downloads.rss
               version-pattern: <link>https://www.boost.org/users/history/version_([\d_]+).html</link>
-              url-template: https://boostorg.jfrog.io/artifactory/main/release/$version0.$version2.$version4/source/boost_$version.tar.bz2
+              url-template: https://archives.boost.io/release/$version0.$version2.$version4/source/boost_$version.tar.bz2
 
   - name: bundle-setup
     buildsystem: simple
