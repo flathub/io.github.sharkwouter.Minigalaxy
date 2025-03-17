@@ -6,7 +6,7 @@ sdk-extensions:
   - org.gnome.Sdk.Compat.i386
   - org.freedesktop.Sdk.Extension.toolchain-i386
 base: org.winehq.Wine
-base-version: stable-23.08
+base-version: stable-24.08
 cleanup:
   - /*/cmake
   - /*/pkgconfig
@@ -26,6 +26,7 @@ inherit-extensions:
   - org.winehq.Wine.DLLs
   - org.winehq.Wine.gecko
   - org.winehq.Wine.mono
+  - org.freedesktop.Platform.VAAPI.Intel.i386
 add-extensions:
   org.gnome.Platform.Compat.i386:
     directory: lib/i386-linux-gnu
@@ -89,13 +90,20 @@ modules:
           - ./b2 -j$FLATPAK_BUILDER_N_JOBS install variant=release cxxstd=17 --layout=system
         sources:
           - type: archive
-            url: https://boostorg.jfrog.io/artifactory/main/release/1.87.0/source/boost_1_87_0.tar.bz2
+            url: https://archives.boost.io/release/1.87.0/source/boost_1_87_0.tar.bz2
             sha256: af57be25cb4c4f4b413ed692fe378affb4352ea50fbe294a11ef548f4d527d89
             x-checker-data:
               type: html
               url: https://www.boost.org/feed/downloads.rss
               version-pattern: <link>https://www.boost.org/users/history/version_([\d_]+).html</link>
-              url-template: https://boostorg.jfrog.io/artifactory/main/release/$version0.$version2.$version4/source/boost_$version.tar.bz2
+              url-template: https://archives.boost.io/release/release/$version0.$version2.$version4/source/boost_$version.tar.bz2
+
+      - name: zenity
+        buildsystem: meson
+        sources:
+          - type: archive
+            url: https://download.gnome.org/sources/zenity/4.1/zenity-4.1.90.tar.xz
+            sha256: bf3679c6205ff48dcebd1e1dff3a3a4a6a0b3a53e1cbc3b098a9ec0b62bd7236
 
   - name: bundle-setup
     buildsystem: simple
