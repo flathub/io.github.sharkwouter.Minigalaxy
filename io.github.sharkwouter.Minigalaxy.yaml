@@ -1,6 +1,6 @@
 app-id: io.github.sharkwouter.Minigalaxy
 runtime: org.gnome.Platform
-runtime-version: &runtime-version '46'
+runtime-version: &runtime-version '48'
 sdk: org.gnome.Sdk
 sdk-extensions:
   - org.gnome.Sdk.Compat.i386
