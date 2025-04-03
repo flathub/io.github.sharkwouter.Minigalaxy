@@ -2,7 +2,7 @@
 
 ### Wine and Minigalaxy
 
-Since 26 Mar 2022 Minigalaxy switched to native Wine Flathub build. Manually installing DXVK no longer needed. WARNING: old Proton prefixes will not work with Wine.
+The wine flatpak does not natively include DXVK because it doesn't behave as expected anymore. Please install DXVK using winetricks where necessary until another solution is found.
 
 ### Minigalaxy Dev version
 
