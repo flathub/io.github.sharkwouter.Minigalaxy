@@ -69,6 +69,9 @@ modules:
 
   - name: innoextract
     buildsystem: cmake-ninja
+    build-options:
+      env:
+        CMAKE_POLICY_VERSION_MINIMUM: "3.5"
     sources:
       - type: git
         url: https://github.com/dscharrer/innoextract.git
