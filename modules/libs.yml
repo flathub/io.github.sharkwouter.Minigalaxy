@@ -28,6 +28,12 @@ modules:
       - type: archive
         url: https://libbsd.freedesktop.org/releases/libbsd-0.12.2.tar.xz
         sha256: b88cc9163d0c652aaf39a99991d974ddba1c3a9711db8f1b5838af2a14731014
+        x-checker-data:
+          type: anitya
+          project-id: 1567
+          stable-only: true
+          url-template: https://libbsd.freedesktop.org/releases/libbsd-$version.tar.xz
+          
     modules:
       - name: libmd
         sources:
