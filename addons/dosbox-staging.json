@@ -9,8 +9,8 @@
         {
             "type": "archive",
             "archive-type": "tar-gzip",
-            "url": "https://api.github.com/repos/dosbox-staging/dosbox-staging/tarball/v0.82.2",
-            "sha256": "af976e654227848158067b5e9fa26150a7453cca07d13268a94600a50dec95cc",
+            "url": "https://api.github.com/repos/dosbox-staging/dosbox-staging/tarball/v0.83.0",
+            "sha256": "14b6b2a8f71bbdb27165a42f90f3a3a23e05da6de5b05b7e18ed131f3d70e9a8",
             "x-checker-data": {
                 "type": "json",
                 "url": "https://api.github.com/repos/dosbox-staging/dosbox-staging/releases/latest",
@@ -57,8 +57,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://gitlab.freedesktop.org/slirp/libslirp/-/archive/v4.9.4/libslirp-v4.9.4.tar.gz",
-                    "sha256": "3998863b020aeda34bddc567097c6efba55a78cdf6eeee6bcd42c11ef23967da",
+                    "url": "https://gitlab.freedesktop.org/slirp/libslirp/-/archive/v4.9.7/libslirp-v4.9.7.tar.gz",
+                    "sha256": "d2567fa06a6357c7755d61c67293b2c0bf069b3f2173bde6b76cf768529a1938",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 96796,
@@ -73,8 +73,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/berndporr/iir1/archive/refs/tags/1.10.0.tar.gz",
-                    "sha256": "13b53f14d276adf6cafd3564fcda1d4b3e72342108d1c40ec4b4f0c7fc3ac95a",
+                    "url": "https://github.com/berndporr/iir1/archive/refs/tags/1.11.1.tar.gz",
+                    "sha256": "ee3ffd1c8b7d406cd5610d537a9e033d93e00f5db208ea0341f0dbd0472e486a",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 288170,
